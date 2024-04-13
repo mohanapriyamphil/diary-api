@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Post = require("../models/Post");
 
+//getting all the posts
 const getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find({}).sort({ createdAt: -1 });
@@ -10,6 +11,7 @@ const getAllPosts = async (req, res) => {
   }
 };
 
+//get only one post
 const getPost = async (req, res) => {
   const { id } = req.params;
 
@@ -25,6 +27,7 @@ const getPost = async (req, res) => {
   }
 };
 
+//creating a post
 const createPost = async (req, res) => {
   const { date, title, content } = req.body;
   try {
@@ -35,6 +38,7 @@ const createPost = async (req, res) => {
   }
 };
 
+//deleting a post
 const deletePost = async (req, res) => {
   const { id } = req.params;
 
@@ -51,6 +55,7 @@ const deletePost = async (req, res) => {
   }
 };
 
+//updating a post
 const updatePost = async (req, res) => {
   const { id } = req.params;
 
